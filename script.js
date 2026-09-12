@@ -21,9 +21,6 @@ chat.lastChild.innerText='J.A.R.V.I.S: Systems online. How may I assist you, Bos
 function add(text, who) {
 
 }
-
-const d=document.createElement('div');
-
 d.className='msg +who;
 
 d.innerText=text;
@@ -31,3 +28,6 @@ d.innerText=text;
 chat.appendChild(d);
 
 chat.scrollTop=chat.scrollHeight;
+const d=document.createElement('div');
+
+d.className='msg +who;
