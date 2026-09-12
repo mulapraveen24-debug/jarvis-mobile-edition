@@ -14,9 +14,7 @@ add('J.A.R.V.I.S: Processing...', 'ai');
 
 setTimeout(()=>{
 
-chat.lastChild.innerText='J.A.R.V.I.S: Systems online. How may I assist you, Boss?';
-
-};
+chat.lastChild.innerText='J.A.R.V.I.S: Systems online. How may I assist you, Boss?';}
 
 }, 1000);
 
