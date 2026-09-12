@@ -6,7 +6,7 @@ document.getElementById('send').onclick=()=>{
 
 if(!t)return;
 
-add('YOU: +t, 'user');
+add('YOU: ' + t, 'user');
 
 input.value='';
 
