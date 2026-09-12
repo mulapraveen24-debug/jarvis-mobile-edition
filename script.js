@@ -2,7 +2,7 @@ const chat=document.getElementById('chat');
 
 const input=document.getElementById('msg');
 
-document.getElementById('send').onclick=()=>{
+document.getElementById('send').onclick=()=>{const t=input.value;
 
 if(!t)return;
 
@@ -18,9 +18,8 @@ chat.lastChild.innerText='J.A.R.V.I.S: Systems online. How may I assist you, Bos
 
 }, 1000);
 
-function add(text, who) {
+function add(text, who) 
 
-}
 d.className='msg +who;
 
 d.innerText=text;
@@ -30,4 +29,5 @@ chat.appendChild(d);
 chat.scrollTop=chat.scrollHeight;
 const d=document.createElement('div');
 
-d.className='msg +who;
+d.className='msg +who;}
+d.className='msg +who;}
