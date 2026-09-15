@@ -12,12 +12,8 @@ add('YOU: ' + t, 'user');
 input.value='';
 
 add('J.A.R.V.I.S: Processing...', 'ai');
-
-setTimeout(()=>{
-
-chat.lastChild.innerText='J.A.R.V.I.S: Systems online. How may I assist you, Boss?';}
-
-}, 1000);} 
+`
+setTimeout(() => { let response = "I received your command."; if (t.toLowerCase().includes("hi")) { response = "Hello, Boss!"; } else if (t.toLowerCase().includes("who are you")) { response = "I am your virtual assistant!"; } chat.lastChild.innerText = response; }, 1000);
 
 function add(text, who) 
 
