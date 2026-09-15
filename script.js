@@ -75,7 +75,7 @@ utterance.lang = 'en-US';
     console.log("Transcript:", transcript);
     
     // Optional: Update an HTML element on your page
-    // document.getElementById('output').innerText = transcript;
+    // document.getElementById('output').innerText = transcript; `fetch('https://generativelanguage .googleapis.com/v1beta/models /gemini-2.5-flash:generateContent ?key=AQ.Ab8RN6KrluOYEwsRo50StHPE-qQ5Yh7QhXSS_hsYuG4ogE5LFw', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ contents: [{ parts: [{ text: transcript }] }] }) })` 
   };
 
   // 6. Control Functions (Bind these to buttons in your UI)
