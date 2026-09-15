@@ -38,12 +38,12 @@ if (!SpeechRecognition) {
   const recognition = new SpeechRecognition();
 
   // 3. Configure settings
-  recognition.lang = 'te-In';        // Set the primary language
+  recognition.lang =  'en-US';        // Set the primary language
 const recognition = new webkitSpeechRecognition();
-recognition.lang = 'te-IN';
+recognition.lang = 'en-US';
 
 const utterance = new SpeechSynthesisUtterance();
-utterance.lang = 'te-IN';
+utterance.lang = 'en-US';
 
   recognition.continuous = false;    // Stop listening automatically when the user pauses
   recognition.interimResults = true; // Show results in real-time as you speak
