@@ -98,7 +98,7 @@ header p {
 }
 
 .on { color: #20ff20; }
-.off { color: #f00; }
+.off { color: #20ff20; }
 
 .chat {
   border: 1px solid rgba(0, 255, 255, .3); 
