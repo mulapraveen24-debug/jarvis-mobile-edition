@@ -83,7 +83,7 @@ utterance.lang = 'te-IN';
   function startListening() {
     recognition.start();
   }
-
+document.getElementById('mic-btn').addEventListener('click', startListening);
   function stopListening() {
     recognition.stop();
   }
