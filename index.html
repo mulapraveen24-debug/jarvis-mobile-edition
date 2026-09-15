@@ -1,61 +1,543 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>J.A.R.V.I.S. Mobile Edition</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-<title>J.A.R.V.I.S</title>
+body {
+    background: #000;
+    color: #00ffff;
+    font-family: "Courier New", monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
 
-<link rel="stylesheet" href="style.css">
+.app {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    padding: 35px 22px 25px;
+}
 
+/* LOGO */
+.logo {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 45px;
+}
+
+.logo h1 {
+    font-family: Arial, sans-serif;
+    font-size: clamp(38px, 10vw, 68px);
+    letter-spacing: 8px;
+    color: #00ffff;
+    text-shadow:
+        0 0 5px #00ffff,
+        0 0 15px #00ffff,
+        0 0 30px #00ffff;
+}
+
+.logo p {
+    margin-top: 8px;
+    font-size: 15px;
+    letter-spacing: 6px;
+    color: #009999;
+}
+
+/* CORE */
+.core-area {
+    text-align: center;
+}
+
+.core {
+    position: relative;
+    width: 295px;
+    height: 295px;
+    margin: auto;
+}
+
+.ring {
+    position: absolute;
+    border: 4px solid #00ffff;
+    border-radius: 50%;
+    box-shadow:
+        0 0 10px #00ffff,
+        inset 0 0 15px #00ffff;
+}
+
+.ring.one {
+    width: 295px;
+    height: 295px;
+    animation: rotate 8s linear infinite;
+}
+
+.ring.two {
+    width: 225px;
+    height: 225px;
+    top: 35px;
+    left: 35px;
+    border-width: 3px;
+    animation: rotateReverse 5s linear infinite;
+}
+
+.ring.two::before {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 6px;
+    background: #000;
+    top: -5px;
+    left: 40px;
+}
+
+.core-dot {
+    position: absolute;
+    width: 112px;
+    height: 112px;
+    background: #08aeb5;
+    border-radius: 50%;
+    top: 91px;
+    left: 91px;
+    box-shadow:
+        0 0 15px #00ffff,
+        0 0 35px rgba(0,255,255,.35);
+}
+
+.core-text {
+    margin-top: 30px;
+    font-size: 21px;
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+/* STATUS */
+.status {
+    border: 2px solid #004f54;
+    background: rgba(0, 30, 30, .45);
+    padding: 23px 20px;
+    margin-top: 38px;
+    box-shadow: inset 0 0 15px rgba(0,255,255,.04);
+}
+
+.status h2 {
+    font-size: 21px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.status-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    margin: 13px 0;
+}
+
+.online {
+    color: #20ff20;
+}
+
+.locked {
+    color: #ff2020;
+}
+
+/* CHAT */
+.chat {
+    height: 280px;
+    border: 2px solid #004f54;
+    margin-top: 37px;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+{
+
+GEMINI_API_KEY =
+
+}
+.user {
+    color: #00ffff;
+}
+
+.jarvis {
+    color: #20ff20;
+}
+
+/* INPUT */
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-top: 23px;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    height: 70px;
+    background: #000;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    outline: none;
+    padding: 0 18px;
+    font-size: 18px;
+    font-family: "Courier New", monospace;
+    box-shadow: 0 0 8px rgba(0,255,255,.3);
+}
+
+input::placeholder {
+    color: #666;
+}
+
+button {
+    height: 70px;
+    border: none;
+    background: #00ffff;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0 25px;
+    cursor: pointer;
+    font-family: "Courier New", monospace;
+}
+
+button:hover {
+    box-shadow: 0 0 20px #00ffff;
+}
+
+.mic {
+    width: 90px;
+    padding: 0;
+    font-size: 27px;
+}
+
+/* ANIMATION */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateReverse {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 500px) {
+
+    .app {
+        padding: 25px 15px;
+    }
+
+    .logo {
+        margin-bottom: 40px;
+    }
+
+    .logo h1 {
+        font-size: 38px;
+        letter-spacing: 6px;
+    }
+
+    .logo p {
+        font-size: 12px;
+        letter-spacing: 4px;
+    }
+
+    .core {
+        width: 260px;
+        height: 260px;
+    }
+
+    .ring.one {
+        width: 260px;
+        height: 260px;
+    }
+
+    .ring.two {
+        width: 200px;
+        height: 200px;
+        top: 30px;
+        left: 30px;
+    }
+
+    .core-dot {
+        width: 100px;
+        height: 100px;
+        top: 80px;
+        left: 80px;
+    }
+
+    .status {
+        margin-top: 35px;
+    }
+
+    .status-row {
+        font-size: 16px;
+    }
+
+    .chat {
+        height: 270px;
+    }
+
+    .controls {
+        gap: 8px;
+    }
+
+    input {
+        font-size: 15px;
+        height: 65px;
+    }
+
+    button {
+        height: 65px;
+        padding: 0 15px;
+        font-size: 15px;
+    }
+
+    .mic {
+        width: 65px;
+        font-size: 23px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<header><h1>J.A.R.V.I.S</h1><p>MOBILE EDITION</p></header>
+<div class="app">
 
-<div class="core">
+    <!-- LOGO -->
+    <div class="logo">
+        <h1>J.A.R.V.I.S</h1>
+        <p>MOBILE EDITION</p>
+    </div>
 
-<div class="ring r1"></div>
+    <!-- CORE -->
+    <div class="core-area">
 
-<div class="ring r2"></div>
+        <div class="core">
+            <div class="ring one"></div>
+            <div class="ring two"></div>
+            <div class="core-dot"></div>
+        </div>
 
-<div class="center"></div>
+        <div class="core-text">CORE ACTIVE</div>
+
+    </div>
+
+    <!-- STATUS -->
+    <div class="status">
+
+        <h2>SYSTEM STATUS</h2>
+
+        <div class="status-row">
+            <span>AI CORE</span>
+            <span class="online">● ONLINE</span>
+        </div>
+
+        <div class="status-row">
+            <span>NETWORK</span>
+            <span class="online">● ONLINE</span>
+        </div>
+
+        <div class="status-row">
+            <span>VOICE</span>
+            <span class="locked">○ LOCKED</span>
+        </div>
+
+        <div class="status-row">
+            <span>MEMORY</span>
+            <span class="locked">○ LOCKED</span>
+        </div>
+
+    </div>
+
+    <!-- CHAT -->
+    <div class="chat" id="chat"></div>
+
+    <!-- CONTROLS -->
+    <div class="controls">
+
+        <input
+            id="command"
+            type="text"
+            placeholder="Ask J.A.R.V.I.S..."
+            autocomplete="off"
+        >
+
+        <button onclick="sendCommand()">SEND</button>
+
+        <button class="mic" onclick="startVoice()">🎙️</button>
+
+    </div>
 
 </div>
 
-<p class="core-text">CORE ACTIVE</p>
 
-<div class="status">
+<script>
 
-<h2>SYSTEM STATUS</h2>
+const input = document.getElementById("command");
+const chat = document.getElementById("chat");
 
-<div class="row"><span>AI CORE</span><b class="on"> ONLINE</b></div>
+/* SEND */
+function sendCommand() {
 
-<div class="row"><span>NETWORK</span><b class="on"> ONLINE</b></div>
+    const text = input.value.trim();
 
-<div class="row"><span>VOICE</span><b class="on"> ONLINE</b></div>
+    if (!text) return;
 
-<div class="row"><span>MEMORY</span><b class="on"> ONLINE</b></div>
+    addMessage("YOU: " + text, "user");
 
-</div>
+    input.value = "";
 
-<div class="chat" id="chat"></div>
+    setTimeout(() => {
 
-<div class="input-area">
+        let response = "I received your command.";
 
-<input id="msg" placeholder="Ask J.A.R.V.I.S...">
+        const command = text.toLowerCase();
 
-<button id="send">SEND</button>
+        if (command.includes("hello") ||
+            command.includes("hi")) {
 
-</div>
+            response = "Hello. J.A.R.V.I.S. is online.";
 
-<script src="script.js"></script>
+        } else if (command.includes("time")) {
+
+            response = "Current time: " +
+                new Date().toLocaleTimeString();
+
+        } else if (command.includes("date")) {
+
+            response = "Today is " +
+                new Date().toLocaleDateString();
+
+        } else if (command.includes("who are you")) {
+
+            response =
+                "I am J.A.R.V.I.S. Mobile Edition.";
+
+        }
+
+        addMessage("JARVIS: " + response, "jarvis");
+
+        speak(response);
+
+    }, 500);
+}
+
+
+/* CHAT MESSAGE */
+function addMessage(text, type) {
+
+    const div = document.createElement("div");
+
+    div.className = "message " + type;
+
+    div.textContent = text;
+
+    chat.appendChild(div);
+
+    chat.scrollTop = chat.scrollHeight;
+}
+
+
+/* VOICE */
+function startVoice() {
+
+    if (!("webkitSpeechRecognition" in window) &&
+        !("SpeechRecognition" in window)) {
+
+        alert("Voice recognition is not supported in this browser.");
+        return;
+    }
+
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+    const recognition = new SpeechRecognition();
+
+    recognition.lang = "en-IN";
+
+    recognition.continuous = false;
+
+    recognition.interimResults = false;
+
+    recognition.start();
+
+    addMessage("Listening...", "jarvis");
+
+    recognition.onresult = function(event) {
+
+        const result =
+            event.results[0][0].transcript;
+
+        input.value = result;
+
+        sendCommand();
+    };
+
+    recognition.onerror = function() {
+
+        addMessage(
+            "JARVIS: Voice recognition error.",
+            "jarvis"
+        );
+
+    };
+}
+
+
+/* TEXT TO SPEECH */
+function speak(text) {
+
+    if (!("speechSynthesis" in window)) return;
+
+    const voice =
+        new SpeechSynthesisUtterance(text);
+
+    voice.lang = "en-IN";
+
+    voice.rate = 0.95;
+
+    voice.pitch = 0.9;
+
+    speechSynthesis.speak(voice);
+}
+
+
+/* ENTER KEY */
+input.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+
+        sendCommand();
+
+    }
+
+});
+
+</script>
 
 </body>
-
 </html>
