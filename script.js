@@ -13,7 +13,7 @@ input.value='';
 
 add('J.A.R.V.I.S: Processing...', 'ai');
 `
-setTimeout(() => { let response = "I received your command. ok open  youtube"; if (t.toLowerCase().includes("hi")) { response = "Hello, Boss!"; } else if (t.toLowerCase().includes("who are you")) { response = "I am your virtual assistant!"; } chat.lastChild.innerText = response; }, 1000);else if (t.toLowerCase().includes("youtube")) {window.open('[https://www.youtube.com]'_blank'); }
+setTimeout(() => { let response = "I received your command."; if (t.toLowerCase().includes("hi")) { response = "Hello, Boss!"; } else if (t.toLowerCase().includes("who are you")) { response = "I am your virtual assistant!"; } else if (t.toLowerCase().includes("youtube")) { window.open('[https://www.youtube.com](https://www.youtube.com)', '_blank'); response = "Opening YouTube for you."; } chat.lastChild.innerText = response; }, 1000);{window.open('[https://www.youtube.com]'_blank'); }
 function add(text, who) response = "Opening YouTube for you.";
 
 d.className='msg +who;
