@@ -2,7 +2,8 @@ const chat=document.getElementById('chat');
 
 const input=document.getElementById('msg');
 document.getElementById('language-select')
-document.getElementById('send').onclick=()=>{const t=input.value; languageSelect.addEventListener('change', (event) => { recognition.lang = event.target.value; });
+languageSelect.addEventListener('change', (event) => { recognition.lang = event.target.value; });
+document.getElementById('send').onclick=()=>{const t=input.value;
 
 if(!t)return;
 
