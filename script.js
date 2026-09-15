@@ -41,7 +41,7 @@ if (!SpeechRecognition) {
   const recognition = new SpeechRecognition();
 
   // 3. Configure settings
-  recognition.lang = 'en-US';        // Set the primary language
+  recognition.lang = 'en-US' te-In;        // Set the primary language
   recognition.continuous = false;    // Stop listening automatically when the user pauses
   recognition.interimResults = true; // Show results in real-time as you speak
 
